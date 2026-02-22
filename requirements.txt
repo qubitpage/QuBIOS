@@ -1,0 +1,12 @@
+# QuBIOS — Qubitpage® Quantum BIOS Framework
+# https://qubitpage.com
+
+# Core QEC simulation (required)
+stim>=1.13
+pymatching>=2.1
+numpy>=1.26
+
+# IBM Quantum hardware (optional)
+qiskit>=1.0
+qiskit-aer>=0.14
+qiskit-ibm-runtime>=0.20
