@@ -2,6 +2,12 @@
 
 <img src="docs/logo.png" alt="Qubitpage®" width="220" />
 
+<div align="center">
+
+[![lablab.ai 1st Place](https://img.shields.io/badge/🥇_1ST_PLACE-lablab.ai_AI_Meets_Robotics_2026-FFD700?style=for-the-badge&labelColor=1a1a2e)](https://lablab.ai/ai-hackathons/launch-fund-ai-meets-robotics)
+
+</div>
+
 # QuBIOS
 ### Quantum BIOS Framework by **[Qubitpage®](https://qubitpage.com)**
 
