@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://qubitpage.com/logo.png" alt="Qubitpage®" width="200"/>
+<img src="docs/logo.png" alt="Qubitpage®" width="220" />
 
 # QuBIOS
 ### Quantum BIOS Framework by **[Qubitpage®](https://qubitpage.com)**
@@ -17,6 +17,13 @@ It wraps every computation in a dual-layer error correction + virtual qubit esco
 turning a noisy 156-qubit IBM Fez into a **reliable, fault-tolerant quantum computer**.
 
 ---
+
+## 📸 Platform Screenshot
+
+![QuBIOS — Live Interface](docs/screenshot.png)
+
+> *Running live at [qubitpage.com](https://qubitpage.com) — fully browser-based, no installation needed.*
+
 
 ---
 
@@ -362,3 +369,25 @@ Built with ❤️ by **[Qubitpage®](https://qubitpage.com)**
 <br/><br/>
 <em>Qubitpage® — Quantum Computing for the Real World</em>
 </div>
+
+
+---
+
+## 🔬 Medical Researchers — Join Us
+
+Are you a scientist working on **cancer, tuberculosis, Alzheimer's, ALS, or rare diseases**?
+
+QubitPage® OS gives you a free, browser-based quantum drug discovery lab using:
+- Real IBM Quantum hardware (156 qubits)
+- MedGemma AI for disease diagnosis
+- TxGemma ADMET prediction  
+- QuBIOS for quantum circuit execution
+
+**📧 Contact:** [contact@qubitpage.com](mailto:contact@qubitpage.com)  
+**Subject:** `[RESEARCHER] Name / Specialty / Institution`  
+**Platform:** [qubitpage.com](https://qubitpage.com) — try it free
+
+> *One GPU (RTX 3090) + QubitPage® OS = a quantum drug discovery lab for any researcher, anywhere in the world.*
+
+---
+
