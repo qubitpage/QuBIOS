@@ -18,6 +18,18 @@ turning a noisy 156-qubit IBM Fez into a **reliable, fault-tolerant quantum comp
 
 ---
 
+---
+
+## 🌐 Ecosystem
+
+| Repository | Description | Status |
+|------------|-------------|--------|
+| **[QLang](https://github.com/qubitpage/QLang)** | Quantum Programming Language + Browser SDK | ✅ Live |
+| **[QuBIOS](https://github.com/qubitpage/QuBIOS)** | ← This repo — Transit Ring quantum middleware engine | ✅ Live |
+| **[QubitPage-OS](https://github.com/qubitpage/QubitPage-OS)** | Full Quantum OS Platform — IBM Quantum + MedGemma AI | ✅ Live |
+
+---
+
 **[🌐 qubitpage.com](https://qubitpage.com)** · **[⚙️ Architecture](docs/architecture.md)** · **[📊 Benchmarks](docs/benchmarks/performance.md)** · **[📖 API Reference](docs/api-reference.md)** · **[🔧 Install](INSTALL.md)**
 
 </div>
