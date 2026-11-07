@@ -4,6 +4,8 @@
 
 ---
 
+> ⚠️ **v1.1.0 note:** this page describes the original v1.0.0 design ideas. Several numbers in it (e.g. "100× suppression", "fidelity sustained indefinitely", "91 logical qubits") were assumptions, not measurements. Measured results are in the [README](../README.md). The Steane encoder and syndrome table shown below were corrected in `qubios/memory.py`.
+
 ## 1. Overview
 
 QuBIOS is built on the observation that quantum computers fail not because qubits are inherently bad, but because:

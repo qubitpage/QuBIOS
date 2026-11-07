@@ -1,48 +1,43 @@
 #!/usr/bin/env python3
-"""QuBIOS Quick Start Example — Qubitpage®.
+"""QuBIOS v1.1.0 quick start — Qubitpage®.
 
+Everything printed here is MEASURED from sampled Stim circuits.
 https://qubitpage.com | https://github.com/qubitpage/QuBIOS
 """
-from qubios import QubiLogicEngine, SteaneQEC, TransitRing, EntanglementDistiller
+import os
+import sys
 
-# ─── 1. Bell State Benchmark ─────────────────────────────────────────────────
-print("=== Bell State: No Buffer vs QuBIOS ===")
-engine = QubiLogicEngine(n_escorts=2, n_transit=3, error_rate=0.001)
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+import qubios  # noqa: E402
+from qubios import (run_memory, SteaneQEC, TeleportEngine, EscortQubVirt,  # noqa: E402
+                    SuperdenseEngine, EntanglementDistiller)
 
-no_buf = engine.benchmark_no_buffer(
-    circuit_type="bell", shots=4096, noise_rate=0.001, idle_rounds=10)
-with_buf = engine.benchmark_with_buffer(
-    circuit_type="bell", shots=4096, noise_rate=0.001, idle_rounds=10)
+print(f"QuBIOS v{qubios.__version__}\n")
 
-print(f"Without QuBIOS: {no_buf['fidelity']:.6f}")
-print(f"With QuBIOS:    {with_buf['effective_fidelity']:.6f}")
-print(f"Improvement:    +{with_buf['effective_fidelity'] - no_buf['fidelity']:.6f}")
+# ─── 1. Steane memory vs. an unencoded qubit (same noise, same duration) ───
+print("=== Steane [[7,1,3]] memory, p = 0.1 %, 3 rounds ===")
+for flags in (False, True):
+    r = run_memory(p=1e-3, rounds=3, shots=100_000, flags=flags, seed=1)
+    lo, hi = r.logical_error_rate_ci95
+    label = "flagged" if flags else "basic  "
+    print(f"{label}: logical error {r.logical_error_rate:.2e} (95% CI {lo:.1e}–{hi:.1e})"
+          f"  vs unencoded {r.physical_error_rate:.2e}"
+          f"  → {r.logical_error_rate / r.physical_error_rate:.2f}×")
 
-# ─── 2. Steane QEC Standalone ────────────────────────────────────────────────
-print("\n=== Steane [[7,1,3]] QEC ===")
-qec = SteaneQEC(physical_error_rate=0.001)
-stats = qec.run_qec_cycle(shots=10000, rounds=1)
-print(f"Errors detected:      {stats.errors_detected}")
-print(f"Errors corrected:     {stats.errors_corrected}")
-print(f"Physical error rate:  {stats.physical_error_rate:.4f}")
-print(f"Logical error rate:   {stats.logical_error_rate:.2e}")
-print(f"Fidelity estimate:    {stats.fidelity_estimate:.6f}")
+# ─── 2. The same through the classic SteaneQEC API ─────────────────────────
+stats = SteaneQEC(physical_error_rate=1e-3).run_qec_cycle(shots=50_000, rounds=1)
+print(f"\nSteaneQEC.run_qec_cycle: logical error {stats.logical_error_rate:.2e}, "
+      f"shots with detections {stats.errors_detected}")
 
-# ─── 3. Transit Ring ─────────────────────────────────────────────────────────
-print("\n=== Transit Ring (3 hops) ===")
-ring = TransitRing(n_blocks=3, error_rate=0.001)
-inject = ring.inject_state(shots=5000)
-print(f"Injected — teleport fidelity: {inject['teleport']['fidelity']:.4f}")
-for i in range(3):
-    hop = ring.relay_hop(shots=5000)
-    print(f"Hop {i+1}: fidelity={hop['teleport']['fidelity']:.4f}, "
-          f"block={hop['current_block']}, time={hop['time_us']:.0f} μs")
+# ─── 3. Teleportation and Bell-pair fidelity (measured in 3 bases) ─────────
+print("\n=== Teleportation / Bell pair, p = 0.1 % ===")
+print(f"Teleport fidelity:  {TeleportEngine(1e-3).run_teleport(60_000).fidelity:.4f}")
+print(f"Bell-pair fidelity: {EscortQubVirt(0, error_rate=1e-3).establish_bell_pair(60_000)['bell_fidelity']:.4f}")
 
-# ─── 4. Entanglement Distillation ────────────────────────────────────────────
-print("\n=== BBPSSW Entanglement Distillation ===")
-distiller = EntanglementDistiller(error_rate=0.001)
-result = distiller.multi_round_distill(shots=50000, noise_rate=0.01, rounds=3)
-print(f"Initial fidelity: {result['initial_fidelity']:.6f}")
-print(f"Final fidelity:   {result['final_fidelity']:.6f}")
-print(f"Total improvement: +{result['total_improvement_pct']:.2f}%")
-print(f"Rounds: {result['rounds']}")
+# ─── 4. Superdense coding ──────────────────────────────────────────────────
+sd = SuperdenseEngine(error_rate=1e-3).run_all_messages(shots=10_000)
+print(f"\nSuperdense coding accuracy (all 4 messages): {sd['overall_accuracy']:.4f}")
+
+# ─── 5. BBPSSW distillation (Z-basis correlation) ──────────────────────────
+d = EntanglementDistiller().run_distillation(shots=50_000, noise_rate=0.01)
+print(f"BBPSSW: ZZ-correlation {d['pre_fidelity']:.4f} → {d['post_fidelity']:.4f} after post-selection")

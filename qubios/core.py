@@ -215,183 +215,78 @@ class SteaneQEC:
         self.block = SteaneBlock(block_id="steane_0")
         self.pauli_frame = PauliFrame()
 
-    def build_encoding_circuit(self, noise: bool = True) -> stim.Circuit:
-        """Build Steane [[7,1,3]] encoding circuit.
+    def build_encoding_circuit(self, noise: bool = True, basis: str = "Z") -> stim.Circuit:
+        """Build a (noisy) unitary encoder for |0_L> (basis 'Z') or |+_L> ('X').
 
-        Encodes |ψ⟩ on qubit 0 into 7 qubits using the standard construction.
+        v1.1.0: fixed. v1.0.0 Hadamarded the wrong qubits, so its output was
+        not a Steane codeword (all six stabilizers had expectation 0).
+        Verified in tests/test_memory.py: all stabilizers = +1.
         """
+        from qubios.memory import steane_encoder
+        enc = steane_encoder(basis)
+        if not noise:
+            return enc
         c = stim.Circuit()
-
-        # Prepare the logical |+_L⟩ state
-        # Step 1: Put ancilla qubits in superposition
-        c.append("H", [1])
-        c.append("H", [2])
-        c.append("H", [4])
-
-        if noise:
-            c.append("DEPOLARIZE1", [0, 1, 2, 3, 4, 5, 6], self.physical_error_rate)
-
-        # Step 2: CNOT cascade for encoding
-        c.append("CNOT", [0, 3])
-        c.append("CNOT", [2, 3])
-        c.append("CNOT", [2, 5])
-        c.append("CNOT", [1, 3])
-        c.append("CNOT", [1, 5])
-        c.append("CNOT", [1, 6])
-        c.append("CNOT", [4, 5])
-        c.append("CNOT", [4, 6])
-        c.append("CNOT", [0, 6])
-
-        if noise:
-            c.append("DEPOLARIZE2",
-                     [0, 3, 2, 3, 2, 5, 1, 3, 1, 5, 1, 6, 4, 5, 4, 6, 0, 6],
-                     self.physical_error_rate * 5)  # 2-qubit gates ~5x noisier
-
+        p = self.physical_error_rate
+        for inst in enc:
+            c.append(inst)
+            targets = [t.value for t in inst.targets_copy()]
+            if inst.name == "CX":
+                c.append("DEPOLARIZE2", targets, p)
+            else:
+                c.append("DEPOLARIZE1", targets, p)
         return c
 
     def build_syndrome_extraction_circuit(self, rounds: int = 1,
-                                           noise: bool = True) -> stim.Circuit:
-        """Build syndrome extraction circuit for X and Z stabilizers.
+                                           noise: bool = True,
+                                           flags: bool = False) -> stim.Circuit:
+        """Syndrome extraction for all 6 stabilizers (ancillas 7–12).
 
-        Measures all 6 stabilizers (3 X + 3 Z) using ancilla qubits 7-12.
+        Uses the same scheduled, circuit-level-noise construction as
+        qubios.memory (noise after every gate, on idle qubits, on resets and
+        on measurements). flags=True adds one flag qubit per stabilizer
+        (qubits 13–18), which restores circuit-level distance 3.
         """
-        c = stim.Circuit()
-
-        for r in range(rounds):
-            # Reset ancilla
-            c.append("R", [7, 8, 9, 10, 11, 12])
-
-            # ── X-stabilizer measurements (ancilla 7, 8, 9) ──
-            # Prepare ancilla in |+⟩
-            c.append("H", [7, 8, 9])
-
-            if noise:
-                c.append("DEPOLARIZE1", [7, 8, 9], self.physical_error_rate)
-
-            # S1: X on {3,4,5,6} via CNOT(ancilla7, data)
-            for d in [3, 4, 5, 6]:
-                c.append("CNOT", [7, d])
-            # S2: X on {1,2,5,6} via CNOT(ancilla8, data)
-            for d in [1, 2, 5, 6]:
-                c.append("CNOT", [8, d])
-            # S3: X on {0,2,4,6} via CNOT(ancilla9, data)
-            for d in [0, 2, 4, 6]:
-                c.append("CNOT", [9, d])
-
-            if noise:
-                c.append("DEPOLARIZE2",
-                         [7, 3, 7, 4, 7, 5, 7, 6,
-                          8, 1, 8, 2, 8, 5, 8, 6,
-                          9, 0, 9, 2, 9, 4, 9, 6],
-                         self.physical_error_rate * 5)
-
-            c.append("H", [7, 8, 9])
-
-            # ── Z-stabilizer measurements (ancilla 10, 11, 12) ──
-            # S4: Z on {3,4,5,6} via CNOT(data, ancilla10)
-            for d in [3, 4, 5, 6]:
-                c.append("CNOT", [d, 10])
-            # S5: Z on {1,2,5,6} via CNOT(data, ancilla11)
-            for d in [1, 2, 5, 6]:
-                c.append("CNOT", [d, 11])
-            # S6: Z on {0,2,4,6} via CNOT(data, ancilla12)
-            for d in [0, 2, 4, 6]:
-                c.append("CNOT", [d, 12])
-
-            if noise:
-                c.append("DEPOLARIZE2",
-                         [3, 10, 4, 10, 5, 10, 6, 10,
-                          1, 11, 2, 11, 5, 11, 6, 11,
-                          0, 12, 2, 12, 4, 12, 6, 12],
-                         self.physical_error_rate * 5)
-
-            # Measure ancilla (syndrome bits)
-            c.append("M", [7, 8, 9, 10, 11, 12])
-
-            if noise:
-                # Measurement errors
-                c.append("X_ERROR", [7, 8, 9, 10, 11, 12],
-                         self.physical_error_rate * 2)
-
-        return c
+        from qubios.memory import _Builder, _qubits, syndrome_round, NoiseModel
+        b = _Builder(_qubits(flags), NoiseModel(self.physical_error_rate) if noise else None)
+        for _ in range(rounds):
+            syndrome_round(b, flags)
+        return b.c
 
     def decode_syndrome(self, x_syndrome: tuple, z_syndrome: tuple) -> dict:
-        """Decode a 3-bit X and Z syndrome to identify errors.
+        """Lookup decode of one 3-bit X and Z syndrome (single-error table).
 
-        Returns dict with 'x_error' and 'z_error' qubit indices (or None).
+        Note: the bit order is (S1, S2, S3) = supports ({3,4,5,6}, {1,2,5,6},
+        {0,2,4,6}), i.e. (bit4, bit2, bit1) of the qubit position i+1.
         """
-        x_error = SteaneBlock.SYNDROME_TO_QUBIT.get(x_syndrome)
-        z_error = SteaneBlock.SYNDROME_TO_QUBIT.get(z_syndrome)
-        return {"x_error": x_error, "z_error": z_error}
+        def lookup(syn):
+            pos = syn[0] * 4 + syn[1] * 2 + syn[2]
+            return None if pos == 0 else pos - 1
+        return {"x_error": lookup(tuple(z_syndrome)), "z_error": lookup(tuple(x_syndrome))}
 
     def run_qec_cycle(self, shots: int = 10000, rounds: int = 1,
-                      noise: bool = True) -> QECStats:
-        """Run a full QEC cycle and return statistics.
+                      noise: bool = True, basis: str = "Z",
+                      flags: bool = False) -> QECStats:
+        """Run a Steane memory experiment and return MEASURED statistics.
 
-        This builds real Stim circuits, samples them, and decodes syndromes.
+        v1.1.0: logical_error_rate and fidelity_estimate are now measured by
+        sampling the noisy circuit and decoding every shot (qubios.memory).
+        v1.0.0 returned the textbook estimate 21·p² regardless of the data.
         """
-        # Build encoding + syndrome extraction
-        c = self.build_encoding_circuit(noise=noise)
-        c += self.build_syndrome_extraction_circuit(rounds=rounds, noise=noise)
-
-        # Sample
-        sampler = c.compile_sampler()
-        results = sampler.sample(shots)
-
+        from qubios.memory import run_memory
+        p = self.physical_error_rate if noise else 0.0
+        res = run_memory(p=p, rounds=rounds, shots=shots, basis=basis, flags=flags)
         stats = QECStats(total_rounds=rounds * shots)
-        shots_with_errors = 0
-        total_corrections = 0
-
-        for row in results:
-            # Extract syndrome bits from the last 6 measurements per round
-            syndrome_bits = row[-(6 * rounds):]
-            shot_had_error = False
-            for r_idx in range(rounds):
-                offset = r_idx * 6
-                x_syn = tuple(int(syndrome_bits[offset + i]) for i in range(3))
-                z_syn = tuple(int(syndrome_bits[offset + 3 + i]) for i in range(3))
-
-                # Decode
-                decoded = self.decode_syndrome(x_syn, z_syn)
-
-                has_x = decoded["x_error"] is not None
-                has_z = decoded["z_error"] is not None
-
-                if has_x or has_z:
-                    shot_had_error = True
-                    # Single-qubit errors are correctable by Steane code
-                    if has_z:
-                        self.pauli_frame.apply_x(decoded["z_error"])
-                        total_corrections += 1
-                    if has_x:
-                        self.pauli_frame.apply_z(decoded["x_error"])
-                        total_corrections += 1
-
-            if shot_had_error:
-                shots_with_errors += 1
-
-        # Statistics
-        detection_rate = shots_with_errors / shots if shots > 0 else 0
-        stats.errors_detected = shots_with_errors
-        stats.errors_corrected = total_corrections
-        stats.physical_error_rate = detection_rate
-
-        # For Steane [[7,1,3]], logical errors occur when weight-2+
-        # errors happen (which the code can't distinguish from weight-1).
-        # Logical error rate ≈ 21 * p^2 for depolarizing noise
-        # where p is the per-qubit physical error rate.
-        p_phys = self.physical_error_rate
-        stats.logical_error_rate = min(1.0, 21 * p_phys * p_phys)
-
-        if shots_with_errors > 0:
-            stats.correction_success_rate = min(1.0, total_corrections / shots_with_errors)
-        else:
-            stats.correction_success_rate = 1.0
-
-        # Fidelity = probability that the logical qubit is correct
-        # Steane [[7,1,3]] suppresses physical error rate p to logical ~21*p²
-        # Accumulated over 'rounds' QEC rounds
-        stats.fidelity_estimate = max(0.0, (1.0 - stats.logical_error_rate) ** rounds)
+        stats.errors_detected = res.shots_with_detection
+        stats.logical_errors = res.logical_errors
+        stats.errors_corrected = max(0, res.shots_with_detection - res.logical_errors)
+        stats.physical_error_rate = self.physical_error_rate
+        stats.logical_error_rate = res.logical_error_rate
+        stats.fidelity_estimate = 1.0 - res.logical_error_rate
+        stats.correction_success_rate = (
+            stats.errors_corrected / res.shots_with_detection
+            if res.shots_with_detection else 1.0)
+        self.last_memory_result = res
         return stats
 
 
@@ -416,115 +311,72 @@ class TeleportEngine:
         """Build a Bell pair between two qubits."""
         c = stim.Circuit()
         c.append("H", [q1])
+        if noise:
+            c.append("DEPOLARIZE1", [q1], self.error_rate)
         c.append("CNOT", [q1, q2])
         if noise:
-            c.append("DEPOLARIZE2", [q1, q2], self.error_rate * 5)
+            c.append("DEPOLARIZE2", [q1, q2], self.error_rate)
         return c
 
-    def build_teleport_circuit(self, noise: bool = True) -> stim.Circuit:
-        """Build complete teleportation circuit (3 qubits).
+    _PREP = {"Z": [], "X": ["H"], "Y": ["H", "S"]}
+    _MEAS = {"Z": "M", "X": "MX", "Y": "MY"}
 
-        Qubit 0: State to teleport (already prepared)
-        Qubit 1: Bell pair half A (sender)
-        Qubit 2: Bell pair half B (receiver) — final destination
+    def build_teleport_circuit(self, noise: bool = True, basis: str = "X") -> stim.Circuit:
+        """Teleportation with real feed-forward corrections (3 qubits).
 
-        Protocol:
-        1. Create Bell pair on qubits 1,2
-        2. Bell measurement on qubits 0,1
-        3. Measure qubits 0,1 → corrections for qubit 2
+        q0: input state (+1 eigenstate of Z, X or Y, chosen by `basis`)
+        q1, q2: Bell pair; q2 receives the state.
+        Corrections are applied with classically-controlled gates
+        (CX rec[-1] q2, CZ rec[-2] q2), then q2 is measured in `basis`.
+        Outcome 0 = state arrived correctly.
         """
+        p = self.error_rate
         c = stim.Circuit()
-
-        # Prepare state on qubit 0 (|+⟩ for testing)
-        c.append("H", [0])
+        for g in self._PREP[basis]:
+            c.append(g, [0])
         if noise:
-            c.append("DEPOLARIZE1", [0], self.error_rate)
-
-        # Bell pair on qubits 1,2
+            c.append("DEPOLARIZE1", [0], p)
         c.append("H", [1])
+        if noise:
+            c.append("DEPOLARIZE1", [1], p)
         c.append("CNOT", [1, 2])
         if noise:
-            c.append("DEPOLARIZE2", [1, 2], self.error_rate * 5)
-
-        # Bell measurement: CNOT(0→1) then H(0) then measure 0,1
+            c.append("DEPOLARIZE2", [1, 2], p)
         c.append("CNOT", [0, 1])
+        if noise:
+            c.append("DEPOLARIZE2", [0, 1], p)
         c.append("H", [0])
         if noise:
-            c.append("DEPOLARIZE2", [0, 1], self.error_rate * 5)
-            c.append("DEPOLARIZE1", [0], self.error_rate)
-
-        # Measure qubits 0 and 1 (Bell measurement results)
-        c.append("M", [0, 1])
-
-        # Apply corrections to qubit 2 based on measurements
-        # In Stim, we use classical feedback via CNOT from measurement record
-        # m0 controls Z, m1 controls X
-        # We'll track in Pauli frame instead
-
-        # Measure qubit 2 (the teleported state)
-        c.append("M", [2])
-
+            c.append("DEPOLARIZE1", [0], p)
+        c.append("M", [0, 1], p) if noise else c.append("M", [0, 1])
+        c.append("CX", [stim.target_rec(-1), 2])
+        c.append("CZ", [stim.target_rec(-2), 2])
+        c.append(self._MEAS[basis], [2], p) if noise else c.append(self._MEAS[basis], [2])
         return c
 
     def run_teleport(self, shots: int = 10000, noise: bool = True) -> TeleportResult:
-        """Execute teleportation and measure fidelity.
+        """Teleport Z, X and Y eigenstates and MEASURE the arrival fidelity.
 
-        Teleports |+⟩ state and checks if it arrives correctly.
-        For |+⟩: after correction, measuring in X-basis should give + with high prob.
+        fidelity = average over the three bases of P(correct outcome).
+        For Pauli noise this equals the average state fidelity over the six
+        Pauli eigenstates. (v1.0.0 instead reported how uniform the Bell
+        measurement outcomes were, which does not detect errors.)
         """
         t0 = time.perf_counter()
-        c = self.build_teleport_circuit(noise=noise)
-        sampler = c.compile_sampler()
-        results = sampler.sample(shots)
-
-        correct = 0
-        total_x_corr = 0
-        total_z_corr = 0
-
-        for row in results:
-            m0, m1, m2 = int(row[0]), int(row[1]), int(row[2])
-
-            # Corrections needed:
-            z_corr = (m0 == 1)  # Z correction if m0=1
-            x_corr = (m1 == 1)  # X correction if m1=1
-
-            if z_corr:
-                total_z_corr += 1
-            if x_corr:
-                total_x_corr += 1
-
-            # After corrections, qubit 2 should be in |+⟩
-            # In Stim, measurement is in Z-basis
-            # For |+⟩, 50/50 is expected BEFORE correction
-            # After X-correction: flip m2 if x_corr
-            corrected_m2 = m2 ^ (1 if x_corr else 0)
-            # We can't directly test |+⟩ fidelity from Z-basis measurement
-            # So we count correction statistics instead
-
-        elapsed = (time.perf_counter() - t0) * 1e6  # microseconds
-
-        # For |+⟩ teleportation, fidelity estimated from Bell measurement correlations
-        # In ideal teleportation, all 4 Bell outcomes (00, 01, 10, 11) equally likely
-        bell_counts = {}
-        for row in results:
-            key = (int(row[0]), int(row[1]))
-            bell_counts[key] = bell_counts.get(key, 0) + 1
-
-        # Check uniformity of Bell measurement outcomes (should be ~25% each)
-        expected = shots / 4
-        deviation = sum(abs(bell_counts.get(k, 0) - expected)
-                       for k in [(0,0),(0,1),(1,0),(1,1)]) / (4 * expected)
-
-        # Fidelity: 1.0 for perfect uniformity, decreases with deviation
-        fidelity = max(0.0, 1.0 - deviation)
-
+        per = max(1, shots // 3)
+        oks, xs, zs = [], 0, 0
+        for basis in ("Z", "X", "Y"):
+            res = self.build_teleport_circuit(noise=noise, basis=basis).compile_sampler().sample(per)
+            oks.append(1.0 - res[:, 2].mean())
+            zs += int(res[:, 0].sum())
+            xs += int(res[:, 1].sum())
+        fidelity = float(sum(oks) / 3)
         return TeleportResult(
-            success=True,
+            success=fidelity > 0.5,
             bell_m1=0, bell_m2=0,
-            x_correction=total_x_corr > shots // 4,
-            z_correction=total_z_corr > shots // 4,
+            x_correction=xs > 0, z_correction=zs > 0,
             fidelity=fidelity,
-            time_us=elapsed,
+            time_us=(time.perf_counter() - t0) * 1e6,
         )
 
 
@@ -553,20 +405,21 @@ class EscortQubVirt:
         self.state = BlockState.IDLE
 
     def establish_bell_pair(self, shots: int = 1000, noise: bool = True) -> dict:
-        """Establish Bell pair between escort and physical qubit."""
+        """Create a noisy Bell pair and MEASURE its fidelity with |Φ+>.
+
+        F = (1 + <XX> − <YY> + <ZZ>) / 4, each correlator estimated from
+        shots/3 samples. (v1.0.0 used only ZZ agreement, which ignores
+        phase errors.)
+        """
         t0 = time.perf_counter()
-        c = self.teleporter.build_bell_pair_circuit(noise=noise)
-        c.append("M", [0, 1])
-        sampler = c.compile_sampler()
-        results = sampler.sample(shots)
-
-        # Count correlated outcomes (00 and 11)
-        correlated = 0
-        for row in results:
-            if int(row[0]) == int(row[1]):
-                correlated += 1
-
-        bell_fidelity = correlated / shots
+        per = max(1, shots // 3)
+        corr = {}
+        for basis, meas in (("Z", "M"), ("X", "MX"), ("Y", "MY")):
+            c = self.teleporter.build_bell_pair_circuit(noise=noise)
+            c.append(meas, [0, 1])
+            r = c.compile_sampler().sample(per)
+            corr[basis] = float(1 - 2 * (r[:, 0] ^ r[:, 1]).mean())
+        bell_fidelity = (1 + corr["X"] - corr["Y"] + corr["Z"]) / 4
         elapsed = (time.perf_counter() - t0) * 1e6
 
         self.bell_paired = bell_fidelity > 0.8
@@ -576,7 +429,7 @@ class EscortQubVirt:
         return {
             "success": self.bell_paired,
             "bell_fidelity": round(bell_fidelity, 6),
-            "correlated_fraction": round(correlated / shots, 4),
+            "correlators": {k: round(v, 6) for k, v in corr.items()},
             "time_us": round(elapsed, 2),
         }
 
@@ -908,7 +761,13 @@ class QubiLogicEngine:
                                idle_rounds: int = 0,
                                qec_rounds: int = 1,
                                use_transit: bool = False) -> dict:
-        """Run a circuit WITH QubiLogic buffer active.
+        """MODELLED (not measured) comparison — kept for backward compatibility.
+
+        WARNING: this does not run error correction on the measured qubits.
+        It replaces the idle noise p of the bare circuit by an ASSUMED
+        logical rate 21·p², so any "improvement" it reports is an input, not
+        a result. For a measured comparison use
+        qubios.memory.run_memory(...) or benchmarks/steane_memory.py.
 
         Process:
         1. Establish escort Bell pairs
@@ -917,6 +776,10 @@ class QubiLogicEngine:
         4. Optionally inject into transit ring for long idle
         5. Extract and measure
         """
+        import warnings
+        warnings.warn("benchmark_with_buffer() is a MODEL (assumes p_L = 21·p²), "
+                      "not a measurement. Use qubios.memory.run_memory() for measured "
+                      "QEC performance.", UserWarning, stacklevel=2)
         t0 = time.perf_counter()
         results_data = {}
 
@@ -1046,6 +909,7 @@ class QubiLogicEngine:
         return {
             "success": True,
             "mode": "with_buffer",
+            "method": "MODELLED: idle noise replaced by assumed 21*p^2; not a measurement",
             "circuit_type": circuit_type,
             "n_qubits": n_qubits,
             "shots": shots,

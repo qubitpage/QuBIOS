@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-07",
+  "backend": "ibm_fez (IBM Heron r2, 156 qubits)",
+  "submitted_via": "IBM Quantum Composer (OpenQASM 3), 4000 shots each",
+  "decoder": "Tesseract on Stim detector error model (p=3e-3 priors), applied via exact per-syndrome lookup table",
+  "baseline": "two unencoded qubits (|0>,|1>) inside the same circuit, idling for the whole Steane circuit",
+  "rows": [
+    {
+      "job_id": "dbn5n70qtr0c73acdmn0",
+      "backend": "ibm_fez",
+      "circuit": "Steane flagged, 1 round",
+      "state": "|0_L>",
+      "shots": 4000,
+      "decoded_logical_error": 0.399,
+      "decoded_ci95": [
+        0.38392814403556896,
+        0.4142656706248311
+      ],
+      "undecoded_logical_error": 0.51075,
+      "postselect_keep": 0.016,
+      "postselect_error": 0.109375,
+      "postselect_ci95": [
+        0.054000447526830544,
+        0.20898863291938535
+      ],
+      "bare_qubit_0_error": 0.00425,
+      "bare_qubit_1_error": 0.22425,
+      "bare_avg_error": 0.11425
+    },
+    {
+      "job_id": "dbn5nq8ou4as73b3tuh0",
+      "backend": "ibm_fez",
+      "circuit": "Steane flagged, 1 round",
+      "state": "|1_L>",
+      "shots": 4000,
+      "decoded_logical_error": 0.4755,
+      "decoded_ci95": [
+        0.460054368436453,
+        0.49099264601087167
+      ],
+      "undecoded_logical_error": 0.5,
+      "postselect_keep": 0.005,
+      "postselect_error": 0.2,
+      "postselect_ci95": [
+        0.0806563532712,
+        0.41602172202575993
+      ],
+      "bare_qubit_0_error": 0.00175,
+      "bare_qubit_1_error": 0.1955,
+      "bare_avg_error": 0.098625
+    },
+    {
+      "job_id": "dbn5o5c4148s7390c9f0",
+      "backend": "ibm_fez",
+      "circuit": "Steane basic, 1 round",
+      "state": "|0_L>",
+      "shots": 4000,
+      "decoded_logical_error": 0.48875,
+      "decoded_ci95": [
+        0.47327698608356,
+        0.5042446021830685
+      ],
+      "undecoded_logical_error": 0.4695,
+      "postselect_keep": 0.04475,
+      "postselect_error": 0.19553072625698323,
+      "postselect_ci95": [
+        0.14408448865877405,
+        0.25977108906533247
+      ],
+      "bare_qubit_0_error": 0.001,
+      "bare_qubit_1_error": 0.18675,
+      "bare_avg_error": 0.093875
+    },
+    {
+      "job_id": "dbn5oh44148s7390ca20",
+      "backend": "ibm_fez",
+      "circuit": "Steane basic, 1 round",
+      "state": "|1_L>",
+      "shots": 4000,
+      "decoded_logical_error": 0.16475,
+      "decoded_ci95": [
+        0.15357667284910886,
+        0.17656665749642725
+      ],
+      "undecoded_logical_error": 0.4125,
+      "postselect_keep": 0.37675,
+      "postselect_error": 0.0092899800928998,
+      "postselect_ci95": [
+        0.005541814943756835,
+        0.015533590975698917
+      ],
+      "bare_qubit_0_error": 0.0305,
+      "bare_qubit_1_error": 0.10525,
+      "bare_avg_error": 0.067875
+    }
+  ]
+}
