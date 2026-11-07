@@ -1,0 +1,21 @@
+QuBIOS v1.1.0 - real IBM Quantum hardware test (Windows)
+=========================================================
+1. Unzip so you have:  C:\carpathron\QuBIOS\QuBIOS-v1.1.0\
+2. Put your IBM key file (apikey.json) in that folder.
+3. Open PowerShell and run:
+
+   cd C:\carpathron\QuBIOS\QuBIOS-v1.1.0
+   py -m pip install -r hardware\requirements-hardware.txt
+   py hardware\ibm_steane_test.py --key-file apikey.json --backend ibm_fez
+
+   (If ibm_fez is busy, use --backend ibm_marrakesh or ibm_torino.)
+4. It shows the circuits and asks "Submit to IBM? [y/N]"; type y.
+5. It prints the JOB ID, waits for the queue, then the results table.
+   A results file is saved in hardware\results\ibm_fez_<date>.json
+6. Send that JSON file back to Claude.
+
+If the queue is long, you can close the window and later run:
+   py hardware\ibm_steane_test.py --key-file apikey.json --job-id <JOB_ID>
+
+Uses about 20-60 seconds of your 10 free minutes.
+Afterwards, delete the API key in your IBM account and create a new one.
