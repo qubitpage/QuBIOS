@@ -12,7 +12,7 @@ QuBIOS v1.1.0 - real IBM Quantum hardware test (Windows)
 4. It shows the circuits and asks "Submit to IBM? [y/N]"; type y.
 5. It prints the JOB ID, waits for the queue, then the results table.
    A results file is saved in hardware\results\ibm_fez_<date>.json
-6. Send that JSON file back to Claude.
+6. Keep that JSON file with the results (hardware/results/).
 
 If the queue is long, you can close the window and later run:
    py hardware\ibm_steane_test.py --key-file apikey.json --job-id <JOB_ID>
