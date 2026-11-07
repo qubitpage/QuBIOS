@@ -1,0 +1,2200 @@
+{
+ "dbn5tc8ou4as73b3u6gg": {
+  "delay_us": 0,
+  "L1_dec": [
+   0.155,
+   0.072,
+   0.0786,
+   0.0693
+  ],
+  "Lp_dec": [
+   0.065,
+   0.1224,
+   0.1592,
+   0.2658
+  ],
+  "keep": [
+   0.4692,
+   0.7061,
+   0.7172,
+   0.7582,
+   0.7452,
+   0.6221,
+   0.5391,
+   0.4386
+  ],
+  "ps_err": [
+   0.0136,
+   0.0057,
+   0.0077,
+   0.0094,
+   0.0051,
+   0.0087,
+   0.018,
+   0.0848
+  ],
+  "B1": [
+   0.0129,
+   0.0184,
+   0.0138,
+   0.0171
+  ],
+  "Bp": [
+   0.0079,
+   0.0042,
+   0.0125,
+   0.0206
+  ],
+  "delay_applied": false,
+  "note": "Composer stripped delays and barriers; Lp copies effectively |0_L> in Z basis (H.H cancelled); bare qubits measured without idling",
+  "backend": "ibm_fez"
+ },
+ "dbn5togou4as73b3u6t0": {
+  "delay_us": 10,
+  "L1_dec": [
+   0.1288,
+   0.3353,
+   0.0629,
+   0.1196
+  ],
+  "Lp_dec": [
+   0.1145,
+   0.4281,
+   0.2992,
+   0.1427
+  ],
+  "keep": [
+   0.349,
+   0.3451,
+   0.7293,
+   0.5615,
+   0.6308,
+   0.1035,
+   0.3599,
+   0.3957
+  ],
+  "ps_err": [
+   0.0192,
+   0.0362,
+   0.0066,
+   0.0148,
+   0.0181,
+   0.1662,
+   0.0761,
+   0.0053
+  ],
+  "B1": [
+   0.0171,
+   0.0463,
+   0.0176,
+   0.0369
+  ],
+  "Bp": [
+   0.0413,
+   0.008,
+   0.0035,
+   0.0132
+  ],
+  "delay_applied": false,
+  "note": "Composer stripped delays and barriers; Lp copies effectively |0_L> in Z basis (H.H cancelled); bare qubits measured without idling",
+  "backend": "ibm_fez"
+ },
+ "dbn5tvc4148s7390chm0": {
+  "delay_us": 30,
+  "L1_dec": [
+   0.0727,
+   0.1449,
+   0.2038,
+   0.1049
+  ],
+  "Lp_dec": [
+   0.0714,
+   0.1685,
+   0.2359,
+   0.1196
+  ],
+  "keep": [
+   0.7117,
+   0.6538,
+   0.4837,
+   0.585,
+   0.7158,
+   0.3839,
+   0.4355,
+   0.6627
+  ],
+  "ps_err": [
+   0.0022,
+   0.0138,
+   0.0248,
+   0.0109,
+   0.0039,
+   0.0104,
+   0.0615,
+   0.0222
+  ],
+  "B1": [
+   0.0158,
+   0.0131,
+   0.0177,
+   0.0572
+  ],
+  "Bp": [
+   0.0073,
+   0.0124,
+   0.0057,
+   0.0219
+  ],
+  "delay_applied": false,
+  "note": "Composer stripped delays and barriers; Lp copies effectively |0_L> in Z basis (H.H cancelled); bare qubits measured without idling",
+  "backend": "ibm_fez"
+ },
+ "dbn5uh0ou4as73b3u7n0": {
+  "delay_us_requested": 100,
+  "delay_applied": false,
+  "L1_dec": [
+   0.0424,
+   0.1613,
+   0.1487,
+   0.0516
+  ],
+  "Lp_dec": [
+   0.3627,
+   0.0876,
+   0.2512,
+   0.0843
+  ],
+  "keep": [
+   0.7563,
+   0.5973,
+   0.4373,
+   0.7722,
+   0.1772,
+   0.6409,
+   0.3188,
+   0.7178
+  ],
+  "ps_err": [
+   0.0013,
+   0.0191,
+   0.0151,
+   0.0039,
+   0.1366,
+   0.0048,
+   0.0455,
+   0.0125
+  ],
+  "B1": [
+   0.0385,
+   0.0075,
+   0.0059,
+   0.0173
+  ],
+  "Bp": [
+   0.0063,
+   0.0162,
+   0.0057,
+   0.0216
+  ],
+  "backend": "ibm_fez"
+ },
+ "dbn6230ou4as73b3ubj0": {
+  "backend": "ibm_marrakesh",
+  "circuit": "138q: 9x|1_L>, 9x|+_L> (true X-basis via reversed-CNOT encoder), 12 bare |1>",
+  "dec": [
+   0.1329,
+   0.0781,
+   0.0923,
+   0.077,
+   0.0356,
+   0.4914,
+   0.0675,
+   0.1556,
+   0.2106,
+   0.1429,
+   0.1262,
+   0.1925,
+   0.1075,
+   0.1646,
+   0.0381,
+   0.0869,
+   0.1284,
+   0.0633
+  ],
+  "keep": [
+   0.55,
+   0.6665,
+   0.6728,
+   0.709,
+   0.7814,
+   0.1361,
+   0.7413,
+   0.4407,
+   0.3666,
+   0.4913,
+   0.5552,
+   0.358,
+   0.5705,
+   0.4256,
+   0.7874,
+   0.6395,
+   0.5835,
+   0.7039
+  ],
+  "ps": [
+   0.0122,
+   0.0063,
+   0.0111,
+   0.0044,
+   0.001,
+   0.4592,
+   0.0078,
+   0.0163,
+   0.0458,
+   0.012,
+   0.018,
+   0.0148,
+   0.0081,
+   0.0179,
+   0.0008,
+   0.0055,
+   0.0199,
+   0.0075
+  ],
+  "bare": [
+   0.0174,
+   0.0301,
+   0.0109,
+   0.0099,
+   0.0146,
+   0.0142,
+   0.0094,
+   0.5058,
+   0.0049,
+   0.0309,
+   0.3473,
+   0.0057
+  ]
+ },
+ "colab_marrakesh_noDD": {
+  "job_id": "dbn69e44148s7390d260",
+  "backend": "ibm_marrakesh",
+  "dd": false,
+  "delays_applied": true,
+  "delays_in_isa": 2260,
+  "mem_means": {
+   "0": {
+    "L1dec": 0.06,
+    "Lpdec": 0.094,
+    "PS_L1": 0.0031,
+    "PS_Lp": 0.0088,
+    "keep": 0.66,
+    "bare1": 0.009,
+    "bareP": 0.004
+   },
+   "25": {
+    "L1dec": 0.195,
+    "Lpdec": 0.496,
+    "PS_L1": 0.0324,
+    "PS_Lp": 0.4834,
+    "keep": 0.26,
+    "bare1": 0.127,
+    "bareP": 0.15
+   },
+   "50": {
+    "L1dec": 0.308,
+    "Lpdec": 0.506,
+    "PS_L1": 0.1303,
+    "PS_Lp": 0.5089,
+    "keep": 0.2,
+    "bare1": 0.226,
+    "bareP": 0.3
+   },
+   "100": {
+    "L1dec": 0.468,
+    "Lpdec": 0.496,
+    "PS_L1": 0.4204,
+    "PS_Lp": 0.499,
+    "keep": 0.17,
+    "bare1": 0.38,
+    "bareP": 0.465
+   },
+   "200": {
+    "L1dec": 0.659,
+    "Lpdec": 0.499,
+    "PS_L1": 0.7925,
+    "PS_Lp": 0.5105,
+    "keep": 0.2,
+    "bare1": 0.585,
+    "bareP": 0.518
+   }
+  },
+  "relay_100us": {
+   "k0": {
+    "err1": 0.368,
+    "errP": 0.503,
+    "2q": 0
+   },
+   "k2": {
+    "err1": 0.607,
+    "errP": 0.449,
+    "2q": 72
+   },
+   "k5": {
+    "err1": 0.609,
+    "errP": 0.467,
+    "2q": 180
+   },
+   "k10": {
+    "err1": 0.645,
+    "errP": 0.492,
+    "2q": 567
+   }
+  }
+ },
+ "colab_marrakesh_DD_XpXm": {
+  "job_id": "dbn69edt7fqc73aj0ncg",
+  "backend": "ibm_marrakesh",
+  "dd": "XpXm",
+  "delays_applied": true,
+  "delays_in_isa": 2260,
+  "mem_means": {
+   "0": {
+    "L1dec": 0.07,
+    "Lpdec": 0.098,
+    "PS_L1": 0.0052,
+    "PS_Lp": 0.0112,
+    "keep": 0.65,
+    "bare1": 0.016,
+    "bareP": 0.018
+   },
+   "25": {
+    "L1dec": 0.199,
+    "Lpdec": 0.382,
+    "PS_L1": 0.026,
+    "PS_Lp": 0.1721,
+    "keep": 0.29,
+    "bare1": 0.081,
+    "bareP": 0.144
+   },
+   "50": {
+    "L1dec": 0.302,
+    "Lpdec": 0.472,
+    "PS_L1": 0.0835,
+    "PS_Lp": 0.4128,
+    "keep": 0.2,
+    "bare1": 0.133,
+    "bareP": 0.328
+   },
+   "100": {
+    "L1dec": 0.418,
+    "Lpdec": 0.502,
+    "PS_L1": 0.2358,
+    "PS_Lp": 0.5102,
+    "keep": 0.15,
+    "bare1": 0.203,
+    "bareP": 0.556
+   },
+   "200": {
+    "L1dec": 0.481,
+    "Lpdec": 0.495,
+    "PS_L1": 0.4336,
+    "PS_Lp": 0.4859,
+    "keep": 0.13,
+    "bare1": 0.317,
+    "bareP": 0.499
+   }
+  },
+  "relay_100us": {
+   "k0": {
+    "err1": 0.199,
+    "errP": 0.487,
+    "2q": 0
+   },
+   "k2": {
+    "err1": 0.395,
+    "errP": 0.487,
+    "2q": 72
+   },
+   "k5": {
+    "err1": 0.357,
+    "errP": 0.48,
+    "2q": 180
+   },
+   "k10": {
+    "err1": 0.415,
+    "errP": 0.512,
+    "2q": 567
+   }
+  }
+ },
+ "cancelled_composer_jobs": [
+  "dbn60744148s7390ck30",
+  "dbn60c44148s7390ckag",
+  "dbn5uq8qtr0c73ace1m0",
+  "dbn61vgou4as73b3ubdg"
+ ],
+ "colab_fez_jobs_pending": [
+  "dbn66tgqtr0c73aced20 (noDD)",
+  "dbn66u5t7fqc73aj0jl0 (DD)"
+ ],
+ "R2_marrakesh_layout_varies": {
+  "note": "each tau transpiled separately -> layout confound; superseded by R3",
+  "none": {
+   "job": "dbn6dj8ou4as73b3us80",
+   "mem": {
+    "0": {
+     "L1dec": 0.064,
+     "Lpdec": 0.12,
+     "PS_L1": 0.0054,
+     "PS_Lp": 0.0137,
+     "keep": 0.64,
+     "bare1": 0.016,
+     "bareP": 0.003
+    },
+    "5": {
+     "L1dec": 0.098,
+     "Lpdec": 0.333,
+     "PS_L1": 0.0101,
+     "PS_Lp": 0.1315,
+     "keep": 0.43,
+     "bare1": 0.132,
+     "bareP": 0.083
+    },
+    "10": {
+     "L1dec": 0.127,
+     "Lpdec": 0.487,
+     "PS_L1": 0.0167,
+     "PS_Lp": 0.448,
+     "keep": 0.35,
+     "bare1": 0.199,
+     "bareP": 0.193
+    },
+    "15": {
+     "L1dec": 0.155,
+     "Lpdec": 0.509,
+     "PS_L1": 0.0267,
+     "PS_Lp": 0.5234,
+     "keep": 0.31,
+     "bare1": 0.254,
+     "bareP": 0.27
+    },
+    "25": {
+     "L1dec": 0.201,
+     "Lpdec": 0.507,
+     "PS_L1": 0.0549,
+     "PS_Lp": 0.5206,
+     "keep": 0.27,
+     "bare1": 0.326,
+     "bareP": 0.232
+    },
+    "40": {
+     "L1dec": 0.271,
+     "Lpdec": 0.503,
+     "PS_L1": 0.1133,
+     "PS_Lp": 0.5014,
+     "keep": 0.23,
+     "bare1": 0.415,
+     "bareP": 0.25
+    }
+   }
+  },
+  "XpXm": {
+   "job": "dbn6djk4148s7390d6ug",
+   "mem": {
+    "0": {
+     "L1dec": 0.073,
+     "Lpdec": 0.114,
+     "PS_L1": 0.0064,
+     "PS_Lp": 0.0131,
+     "keep": 0.63,
+     "bare1": 0.039,
+     "bareP": 0.013
+    },
+    "5": {
+     "L1dec": 0.105,
+     "Lpdec": 0.193,
+     "PS_L1": 0.0124,
+     "PS_Lp": 0.0322,
+     "keep": 0.5,
+     "bare1": 0.077,
+     "bareP": 0.039
+    },
+    "10": {
+     "L1dec": 0.135,
+     "Lpdec": 0.261,
+     "PS_L1": 0.0184,
+     "PS_Lp": 0.0672,
+     "keep": 0.42,
+     "bare1": 0.101,
+     "bareP": 0.07
+    },
+    "15": {
+     "L1dec": 0.156,
+     "Lpdec": 0.322,
+     "PS_L1": 0.0283,
+     "PS_Lp": 0.1128,
+     "keep": 0.37,
+     "bare1": 0.131,
+     "bareP": 0.099
+    },
+    "25": {
+     "L1dec": 0.207,
+     "Lpdec": 0.404,
+     "PS_L1": 0.0488,
+     "PS_Lp": 0.2253,
+     "keep": 0.29,
+     "bare1": 0.172,
+     "bareP": 0.154
+    },
+    "40": {
+     "L1dec": 0.263,
+     "Lpdec": 0.471,
+     "PS_L1": 0.0798,
+     "PS_Lp": 0.3957,
+     "keep": 0.23,
+     "bare1": 0.222,
+     "bareP": 0.25
+    }
+   }
+  },
+  "XY4": {
+   "job": "dbn6djtt7fqc73aj0s70",
+   "mem": {
+    "0": {
+     "L1dec": 0.073,
+     "Lpdec": 0.118,
+     "PS_L1": 0.0062,
+     "PS_Lp": 0.0127,
+     "keep": 0.62,
+     "bare1": 0.052,
+     "bareP": 0.016
+    },
+    "5": {
+     "L1dec": 0.119,
+     "Lpdec": 0.2,
+     "PS_L1": 0.0152,
+     "PS_Lp": 0.0339,
+     "keep": 0.49,
+     "bare1": 0.099,
+     "bareP": 0.04
+    },
+    "10": {
+     "L1dec": 0.145,
+     "Lpdec": 0.258,
+     "PS_L1": 0.0237,
+     "PS_Lp": 0.0622,
+     "keep": 0.41,
+     "bare1": 0.129,
+     "bareP": 0.062
+    },
+    "15": {
+     "L1dec": 0.175,
+     "Lpdec": 0.314,
+     "PS_L1": 0.0321,
+     "PS_Lp": 0.1058,
+     "keep": 0.35,
+     "bare1": 0.154,
+     "bareP": 0.085
+    },
+    "25": {
+     "L1dec": 0.225,
+     "Lpdec": 0.398,
+     "PS_L1": 0.0537,
+     "PS_Lp": 0.2167,
+     "keep": 0.28,
+     "bare1": 0.192,
+     "bareP": 0.134
+    },
+    "40": {
+     "L1dec": 0.278,
+     "Lpdec": 0.463,
+     "PS_L1": 0.1013,
+     "PS_Lp": 0.3627,
+     "keep": 0.22,
+     "bare1": 0.234,
+     "bareP": 0.219
+    }
+   }
+  }
+ },
+ "R3_marrakesh_fixed_layout": {
+  "note": "same physical layout for all taus; 8000 shots; 4 logical |1_L>, 4 |+_L>, 4 bare |1>, 4 bare |+> (means over copies)",
+  "none_a": {
+   "job": "dbn6enoou4as73b3utc0",
+   "mem": {
+    "0": {
+     "L1dec": 0.148,
+     "Lpdec": 0.062,
+     "PS_L1": 0.0206,
+     "PS_Lp": 0.006,
+     "keep": 0.62,
+     "bare1": 0.011,
+     "bareP": 0.004
+    },
+    "5": {
+     "L1dec": 0.196,
+     "Lpdec": 0.154,
+     "PS_L1": 0.0386,
+     "PS_Lp": 0.0186,
+     "keep": 0.45,
+     "bare1": 0.038,
+     "bareP": 0.091
+    },
+    "10": {
+     "L1dec": 0.234,
+     "Lpdec": 0.288,
+     "PS_L1": 0.0614,
+     "PS_Lp": 0.0785,
+     "keep": 0.32,
+     "bare1": 0.064,
+     "bareP": 0.208
+    },
+    "20": {
+     "L1dec": 0.296,
+     "Lpdec": 0.474,
+     "PS_L1": 0.117,
+     "PS_Lp": 0.39,
+     "keep": 0.21,
+     "bare1": 0.108,
+     "bareP": 0.257
+    },
+    "40": {
+     "L1dec": 0.396,
+     "Lpdec": 0.479,
+     "PS_L1": 0.2782,
+     "PS_Lp": 0.4291,
+     "keep": 0.17,
+     "bare1": 0.191,
+     "bareP": 0.276
+    },
+    "80": {
+     "L1dec": 0.543,
+     "Lpdec": 0.5,
+     "PS_L1": 0.6038,
+     "PS_Lp": 0.4938,
+     "keep": 0.16,
+     "bare1": 0.34,
+     "bareP": 0.443
+    }
+   }
+  },
+  "none_b": {
+   "job": "dbn6eo5t7fqc73aj0te0",
+   "mem": {
+    "0": {
+     "L1dec": 0.151,
+     "Lpdec": 0.062,
+     "PS_L1": 0.023,
+     "PS_Lp": 0.0062,
+     "keep": 0.63,
+     "bare1": 0.01,
+     "bareP": 0.004
+    },
+    "5": {
+     "L1dec": 0.199,
+     "Lpdec": 0.147,
+     "PS_L1": 0.0402,
+     "PS_Lp": 0.0164,
+     "keep": 0.45,
+     "bare1": 0.037,
+     "bareP": 0.089
+    },
+    "10": {
+     "L1dec": 0.248,
+     "Lpdec": 0.286,
+     "PS_L1": 0.0686,
+     "PS_Lp": 0.0712,
+     "keep": 0.31,
+     "bare1": 0.065,
+     "bareP": 0.204
+    },
+    "20": {
+     "L1dec": 0.307,
+     "Lpdec": 0.482,
+     "PS_L1": 0.1433,
+     "PS_Lp": 0.4043,
+     "keep": 0.19,
+     "bare1": 0.11,
+     "bareP": 0.267
+    },
+    "40": {
+     "L1dec": 0.412,
+     "Lpdec": 0.488,
+     "PS_L1": 0.3258,
+     "PS_Lp": 0.4307,
+     "keep": 0.17,
+     "bare1": 0.201,
+     "bareP": 0.264
+    },
+    "80": {
+     "L1dec": 0.559,
+     "Lpdec": 0.5,
+     "PS_L1": 0.6435,
+     "PS_Lp": 0.4981,
+     "keep": 0.17,
+     "bare1": 0.343,
+     "bareP": 0.423
+    }
+   }
+  },
+  "XpXm": {
+   "job": "dbn6eo8qtr0c73acemng",
+   "mem": {
+    "0": {
+     "L1dec": 0.162,
+     "Lpdec": 0.066,
+     "PS_L1": 0.0241,
+     "PS_Lp": 0.0049,
+     "keep": 0.6,
+     "bare1": 0.025,
+     "bareP": 0.025
+    },
+    "5": {
+     "L1dec": 0.216,
+     "Lpdec": 0.107,
+     "PS_L1": 0.0507,
+     "PS_Lp": 0.0102,
+     "keep": 0.49,
+     "bare1": 0.039,
+     "bareP": 0.05
+    },
+    "10": {
+     "L1dec": 0.255,
+     "Lpdec": 0.161,
+     "PS_L1": 0.0711,
+     "PS_Lp": 0.0204,
+     "keep": 0.4,
+     "bare1": 0.05,
+     "bareP": 0.074
+    },
+    "20": {
+     "L1dec": 0.31,
+     "Lpdec": 0.278,
+     "PS_L1": 0.1124,
+     "PS_Lp": 0.0712,
+     "keep": 0.29,
+     "bare1": 0.074,
+     "bareP": 0.128
+    },
+    "40": {
+     "L1dec": 0.38,
+     "Lpdec": 0.428,
+     "PS_L1": 0.2042,
+     "PS_Lp": 0.2741,
+     "keep": 0.19,
+     "bare1": 0.115,
+     "bareP": 0.25
+    },
+    "80": {
+     "L1dec": 0.449,
+     "Lpdec": 0.5,
+     "PS_L1": 0.3402,
+     "PS_Lp": 0.5095,
+     "keep": 0.14,
+     "bare1": 0.184,
+     "bareP": 0.481
+    }
+   }
+  },
+  "XY4": {
+   "job": "dbn6eolt7fqc73aj0tf0",
+   "mem": {
+    "0": {
+     "L1dec": 0.163,
+     "Lpdec": 0.074,
+     "PS_L1": 0.0288,
+     "PS_Lp": 0.0063,
+     "keep": 0.59,
+     "bare1": 0.032,
+     "bareP": 0.026
+    },
+    "5": {
+     "L1dec": 0.223,
+     "Lpdec": 0.113,
+     "PS_L1": 0.051,
+     "PS_Lp": 0.0109,
+     "keep": 0.47,
+     "bare1": 0.05,
+     "bareP": 0.047
+    },
+    "10": {
+     "L1dec": 0.26,
+     "Lpdec": 0.168,
+     "PS_L1": 0.0742,
+     "PS_Lp": 0.0243,
+     "keep": 0.4,
+     "bare1": 0.059,
+     "bareP": 0.07
+    },
+    "20": {
+     "L1dec": 0.313,
+     "Lpdec": 0.274,
+     "PS_L1": 0.1199,
+     "PS_Lp": 0.0649,
+     "keep": 0.29,
+     "bare1": 0.084,
+     "bareP": 0.114
+    },
+    "40": {
+     "L1dec": 0.385,
+     "Lpdec": 0.431,
+     "PS_L1": 0.2143,
+     "PS_Lp": 0.2727,
+     "keep": 0.18,
+     "bare1": 0.126,
+     "bareP": 0.205
+    },
+    "80": {
+     "L1dec": 0.448,
+     "Lpdec": 0.498,
+     "PS_L1": 0.3483,
+     "PS_Lp": 0.4957,
+     "keep": 0.14,
+     "bare1": 0.195,
+     "bareP": 0.439
+    }
+   }
+  }
+ },
+ "usage_after_R3_s": {
+  "consumed": 213,
+  "limit": 600
+ },
+ "R4_fez_fixed_layout": {
+  "note": "ibm_fez, fixed layout, 8000 shots; XY4 job dbn6fnlt7fqc73aj0uf0 result not captured (Colab runtime disconnected)",
+  "none": {
+   "job": "dbn6fnc4148s7390d98g",
+   "mem": {
+    "0": {
+     "L1dec": 0.107,
+     "Lpdec": 0.114,
+     "PS_L1": 0.0132,
+     "PS_Lp": 0.0134,
+     "keep": 0.62,
+     "bare1": 0.008,
+     "bareP": 0.004
+    },
+    "5": {
+     "L1dec": 0.141,
+     "Lpdec": 0.315,
+     "PS_L1": 0.0202,
+     "PS_Lp": 0.1178,
+     "keep": 0.4,
+     "bare1": 0.081,
+     "bareP": 0.068
+    },
+    "10": {
+     "L1dec": 0.17,
+     "Lpdec": 0.475,
+     "PS_L1": 0.0275,
+     "PS_Lp": 0.3705,
+     "keep": 0.3,
+     "bare1": 0.168,
+     "bareP": 0.179
+    },
+    "20": {
+     "L1dec": 0.229,
+     "Lpdec": 0.496,
+     "PS_L1": 0.0641,
+     "PS_Lp": 0.4779,
+     "keep": 0.25,
+     "bare1": 0.261,
+     "bareP": 0.396
+    },
+    "40": {
+     "L1dec": 0.341,
+     "Lpdec": 0.503,
+     "PS_L1": 0.174,
+     "PS_Lp": 0.5014,
+     "keep": 0.19,
+     "bare1": 0.348,
+     "bareP": 0.393
+    },
+    "80": {
+     "L1dec": 0.504,
+     "Lpdec": 0.495,
+     "PS_L1": 0.5109,
+     "PS_Lp": 0.4977,
+     "keep": 0.17,
+     "bare1": 0.54,
+     "bareP": 0.617
+    }
+   }
+  }
+ },
+ "R5_marrakesh_opposed_pair_DFS": {
+  "note": "20 opposed pairs |01>+|10>, 20 aligned pairs |00>+|11>, 20 single |+>; fixed layout; 80 CZ (no SWAPs); 8000 shots",
+  "none": {
+   "job": "dbn6sm0qtr0c73acf98g",
+   "res": {
+    "0": {
+     "opposed": 0.046,
+     "opposed_filtered": 0.042,
+     "opposed_keep": 0.95,
+     "opposed_best": 0.008,
+     "aligned": 0.045,
+     "single": 0.013,
+     "single_best": 0.004
+    },
+    "10": {
+     "opposed": 0.308,
+     "opposed_filtered": 0.286,
+     "opposed_keep": 0.86,
+     "opposed_best": 0.083,
+     "aligned": 0.301,
+     "single": 0.221,
+     "single_best": 0.037
+    },
+    "20": {
+     "opposed": 0.459,
+     "opposed_filtered": 0.445,
+     "opposed_keep": 0.79,
+     "opposed_best": 0.144,
+     "aligned": 0.447,
+     "single": 0.327,
+     "single_best": 0.068
+    },
+    "40": {
+     "opposed": 0.509,
+     "opposed_filtered": 0.507,
+     "opposed_keep": 0.69,
+     "opposed_best": 0.279,
+     "aligned": 0.461,
+     "single": 0.445,
+     "single_best": 0.154
+    },
+    "80": {
+     "opposed": 0.495,
+     "opposed_filtered": 0.496,
+     "opposed_keep": 0.55,
+     "opposed_best": 0.443,
+     "aligned": 0.498,
+     "single": 0.469,
+     "single_best": 0.217
+    },
+    "160": {
+     "opposed": 0.498,
+     "opposed_filtered": 0.498,
+     "opposed_keep": 0.37,
+     "opposed_best": 0.482,
+     "aligned": 0.501,
+     "single": 0.505,
+     "single_best": 0.447
+    }
+   }
+  },
+  "XY4": {
+   "job": "dbn6sm8qtr0c73acf99g",
+   "res": {
+    "0": {
+     "opposed": 0.046,
+     "opposed_filtered": 0.042,
+     "opposed_keep": 0.95,
+     "opposed_best": 0.009,
+     "aligned": 0.046,
+     "single": 0.012,
+     "single_best": 0.004
+    },
+    "10": {
+     "opposed": 0.173,
+     "opposed_filtered": 0.136,
+     "opposed_keep": 0.85,
+     "opposed_best": 0.086,
+     "aligned": 0.176,
+     "single": 0.085,
+     "single_best": 0.029
+    },
+    "20": {
+     "opposed": 0.257,
+     "opposed_filtered": 0.212,
+     "opposed_keep": 0.8,
+     "opposed_best": 0.14,
+     "aligned": 0.262,
+     "single": 0.148,
+     "single_best": 0.058
+    },
+    "40": {
+     "opposed": 0.372,
+     "opposed_filtered": 0.334,
+     "opposed_keep": 0.72,
+     "opposed_best": 0.273,
+     "aligned": 0.375,
+     "single": 0.271,
+     "single_best": 0.158
+    },
+    "80": {
+     "opposed": 0.476,
+     "opposed_filtered": 0.466,
+     "opposed_keep": 0.64,
+     "opposed_best": 0.446,
+     "aligned": 0.479,
+     "single": 0.461,
+     "single_best": 0.328
+    },
+    "160": {
+     "opposed": 0.499,
+     "opposed_filtered": 0.501,
+     "opposed_keep": 0.56,
+     "opposed_best": 0.479,
+     "aligned": 0.5,
+     "single": 0.512,
+     "single_best": 0.488
+    }
+   }
+  }
+ },
+ "usage_final_s": {
+  "consumed": 265,
+  "limit": 600
+ },
+ "runs": [
+  {
+   "date": "2026-11-07",
+   "device": "ibm_marrakesh",
+   "usage_after_s": 275,
+   "clone_test": {
+    "job": "dbn78ms4148s7390eeh0",
+    "shots": 4000,
+    "each_clone_reads_plus": 0.5055,
+    "single_plus_reads_plus": 0.9866,
+    "XXX_parity_even": 0.935,
+    "Z_all_equal": 0.9151,
+    "verdict": "no-cloning confirmed: CNOT fan-out makes GHZ, not copies"
+   },
+   "rep_code_feedback": {
+    "job": "dbn78n5t7fqc73aj23eg",
+    "shots": 2000,
+    "wait_us_per_round": 10,
+    "copies": "5x n=3, 5x n=5, 5x bare per circuit",
+    "dd": "none (IBM: DD not allowed with dynamic circuits)",
+    "logical_error_mean_best": {
+     "off_R1": {
+      "3": [
+       0.0577,
+       0.023
+      ],
+      "5": [
+       0.0181,
+       0.002
+      ],
+      "1": [
+       0.0904,
+       0.051
+      ]
+     },
+     "off_R2": {
+      "3": [
+       0.1505,
+       0.072
+      ],
+      "5": [
+       0.0652,
+       0.017
+      ],
+      "1": [
+       0.1549,
+       0.106
+      ]
+     },
+     "off_R4": {
+      "3": [
+       0.3192,
+       0.195
+      ],
+      "5": [
+       0.226,
+       0.1125
+      ],
+      "1": [
+       0.2538,
+       0.178
+      ]
+     },
+     "fb_R1": {
+      "3": [
+       0.0474,
+       0.017
+      ],
+      "5": [
+       0.0341,
+       0.0185
+      ],
+      "1": [
+       0.0977,
+       0.063
+      ]
+     },
+     "fb_R2": {
+      "3": [
+       0.0931,
+       0.039
+      ],
+      "5": [
+       0.0804,
+       0.046
+      ],
+      "1": [
+       0.1611,
+       0.108
+      ]
+     },
+     "fb_R4": {
+      "3": [
+       0.1883,
+       0.089
+      ],
+      "5": [
+       0.1567,
+       0.0785
+      ],
+      "1": [
+       0.2608,
+       0.1965
+      ]
+     }
+    },
+    "verdict": "real-time feedback repetition code beats bare |1> at all R (e.g. R4: 15.7% n5 vs 26.1% bare); classical-bit (T1) protection only"
+   },
+   "note": "earlier feedback cell hung >8 min in Sabre layout with if_else; fixed with hand-picked chains + routing none; switch_case rejected by real backend"
+  },
+  {
+   "date": "2026-11-07",
+   "device": "ibm_marrakesh",
+   "round": 6,
+   "jobs": {
+    "bit": "dbn7ec0qtr0c73acg2o0 (FAILED 6057: n=7 real-time table too large)",
+    "phase": "dbn7ed8ou4as73b409kg",
+    "conv": "dbn7eg8qtr0c73acg2ug"
+   },
+   "shots": 2000,
+   "wait_us": 10,
+   "phase_code_plus_state_error": {
+    "ph_fb_R2": {
+     "3": 0.1547,
+     "5": 0.1142,
+     "bare": 0.655
+    },
+    "ph_fb_R4": {
+     "3": 0.2228,
+     "5": 0.1853,
+     "bare": 0.5197
+    },
+    "ph_fb_dd_R2": {
+     "3": 0.0668,
+     "5": 0.0787,
+     "bare_dd": 0.3355
+    },
+    "ph_fb_dd_R4": {
+     "3": 0.099,
+     "5": 0.1137,
+     "bare_dd": 0.5355
+    },
+    "ph_off_dd_R2": {
+     "3": 0.0685,
+     "5": 0.0287,
+     "bare_dd": 0.3357
+    },
+    "ph_off_dd_R4": {
+     "3": 0.116,
+     "5": 0.0567,
+     "bare_dd": 0.5195
+    }
+   },
+   "conveyor_error": {
+    "Z_H2": [
+     0.1789,
+     0.1481
+    ],
+    "Z_H4": [
+     0.3178,
+     0.2805
+    ],
+    "Z_H8": [
+     0.5084,
+     0.3765
+    ],
+    "X_H2": [
+     0.2737,
+     0.5964
+    ],
+    "X_H4": [
+     0.4352,
+     0.5343
+    ],
+    "X_H8": [
+     0.5075,
+     0.5431
+    ]
+   },
+   "notes": "bare |+> error >0.5 => coherent phase rotation (detuning/ZZ), not random dephasing. Real-time feedback hurt the phase code with DD (off 5.7% vs fb 11.4% at R4 n=5). Conveyor worse for |1> (T1 memoryless), apparent gain for |+> is vs a coherently-rotating baseline, not proven."
+  },
+  {
+   "date": "2026-11-07",
+   "device": "ibm_marrakesh",
+   "round": 7,
+   "jobs": {
+    "phaseDD": "dbn7g1s4148s7390en00",
+    "bit": "see colab",
+    "convDD": "see colab"
+   },
+   "shots": 2000,
+   "phase_code_DD_(majority,matching)": {
+    "R2": {
+     "3": [
+      0.0435,
+      0.0552
+     ],
+     "5": [
+      0.0238,
+      0.0322
+     ],
+     "bare_dd": 0.3172
+    },
+    "R4": {
+     "3": [
+      0.0907,
+      0.0888
+     ],
+     "5": [
+      0.052,
+      0.0542
+     ],
+     "bare_dd": 0.5315
+    },
+    "R8": {
+     "3": [
+      0.1405,
+      0.1452
+     ],
+     "5": [
+      0.0982,
+      0.0898
+     ],
+     "bare_dd": 0.5742
+    }
+   },
+   "bit_code_(majority,matching)": {
+    "R2": {
+     "3": [
+      0.0725,
+      0.0605
+     ],
+     "5": [
+      0.1977,
+      0.117
+     ],
+     "7": [
+      0.0227,
+      0.0105
+     ],
+     "bare": 0.1487
+    },
+    "R4": {
+     "3": [
+      0.1857,
+      0.1117
+     ],
+     "5": [
+      0.4378,
+      0.1878
+     ],
+     "7": [
+      0.153,
+      0.0415
+     ],
+     "bare": 0.268
+    },
+    "R8": {
+     "3": [
+      0.4342,
+      0.1908
+     ],
+     "5": [
+      0.7773,
+      0.2543
+     ],
+     "7": [
+      0.549,
+      0.0755
+     ],
+     "bare": 0.4557
+    }
+   },
+   "conveyor_DD_vs_bareDD": {
+    "H2": [
+     0.1524,
+     0.2304
+    ],
+    "H4": [
+     0.2446,
+     0.3425
+    ],
+    "H8": [
+     0.4021,
+     0.474
+    ]
+   },
+   "usage_after_s": 303
+  },
+  {
+   "date": "2026-11-07",
+   "device": "ibm_marrakesh",
+   "round": 8,
+   "jobs": {
+    "same_qubit": "dbn7hc8ou4as73b40d6g",
+    "bigbit": "dbn7hfgou4as73b40d9g"
+   },
+   "shots": 2000,
+   "same_qubit_control_|+>": {
+    "H2": {
+     "conveyor": 0.1692,
+     "vote3": 0.0712,
+     "stay_first": 0.2079,
+     "stay_last": 0.2003,
+     "bare_dd": 0.2111
+    },
+    "H4": {
+     "conveyor": 0.245,
+     "vote3": 0.1608,
+     "stay_first": 0.2968,
+     "stay_last": 0.2969,
+     "bare_dd": 0.4018
+    },
+    "H8": {
+     "conveyor": 0.3777,
+     "vote3": 0.3232,
+     "stay_first": 0.4518,
+     "stay_last": 0.4506,
+     "bare_dd": 0.4713
+    }
+   },
+   "bit_code_matching_per_copy": {
+    "order": "n9,n9,n7,n7,n3,n3,bare,bare",
+    "R8": [
+     0.0765,
+     0.0285,
+     0.204,
+     0.1325,
+     0.243,
+     0.206,
+     0.376,
+     0.4615
+    ],
+    "R12": [
+     0.1215,
+     0.0415,
+     0.185,
+     0.1575,
+     0.283,
+     0.2535,
+     0.5185,
+     0.5665
+    ]
+   },
+   "usage_after_s": 315
+  },
+  {
+   "date": "2026-11-07",
+   "round": 9,
+   "purpose": "confirmation of conveyor effect with XY4 DD, two states, same chains, two devices",
+   "jobs": {
+    "ibm_marrakesh": "dbn7ipgqtr0c73acg89g",
+    "ibm_kingston": "dbn7it44148s7390eqo0 (queued at time of logging)"
+   },
+   "marrakesh": {
+    "H4_plus": {
+     "conv": 0.245,
+     "stay": 0.2925
+    },
+    "H4_plus_i": {
+     "conv": 0.2845,
+     "stay": 0.2863
+    },
+    "H8_plus": {
+     "conv": 0.3864,
+     "stay": 0.435
+    },
+    "H8_plus_i": {
+     "conv": 0.4482,
+     "stay": 0.4312
+    },
+    "stay_per_chain_H4_plus": [
+     0.189,
+     0.132,
+     0.378,
+     0.346,
+     0.424,
+     0.286
+    ],
+    "conv_per_chain_H4_plus": [
+     0.234,
+     0.216,
+     0.212,
+     0.309,
+     0.294,
+     0.203
+    ]
+   },
+   "verdict": "effect NOT confirmed as general: holds for |+>, vanishes/reverses for |+i>. Best stay-put qubit (13.2%) beats every conveyor chain -> conveyor averages qubit quality rather than beating the best qubit. Literature: partially known (Averin et al. PRL 116 010501 2016; Chang-Su-Puri arXiv:2508.04947)."
+  },
+  {
+   "round": "9b",
+   "device": "ibm_kingston",
+   "job": "dbn7it44148s7390eqo0",
+   "H4_plus": {
+    "conv": 0.2375,
+    "stay": 0.2633
+   },
+   "H4_plus_i": {
+    "conv": 0.2675,
+    "stay": 0.2588
+   },
+   "H8_plus": {
+    "conv": 0.3252,
+    "stay": 0.3202
+   },
+   "H8_plus_i": {
+    "conv": 0.3709,
+    "stay": 0.3105
+   },
+   "verdict": "conveyor advantage NOT reproduced on kingston -> idea closed"
+  },
+  {
+   "round": 10,
+   "device": "ibm_marrakesh",
+   "jobs": {
+    "park": "dbn7nndt7fqc73aj2obg",
+    "placement": "dbn7nq8ou4as73b40ou0",
+    "bitbest": "dbn7nv0ou4as73b40pc0"
+   },
+   "relearn_round8_(uniform,learned)": {
+    "R8": [
+     [
+      0.0765,
+      0.0765
+     ],
+     [
+      0.0285,
+      0.0305
+     ],
+     [
+      0.204,
+      0.1535
+     ],
+     [
+      0.1325,
+      0.142
+     ],
+     [
+      0.243,
+      0.226
+     ],
+     [
+      0.206,
+      0.162
+     ]
+    ],
+    "R12": [
+     [
+      0.1215,
+      0.099
+     ],
+     [
+      0.0415,
+      0.05
+     ],
+     [
+      0.185,
+      0.1345
+     ],
+     [
+      0.1575,
+      0.23
+     ],
+     [
+      0.283,
+      0.2565
+     ],
+     [
+      0.2535,
+      0.199
+     ]
+    ]
+   },
+   "park_|+>": {
+    "H2": {
+     "none": 0.3168,
+     "xy4": 0.1028,
+     "xy8": 0.1013,
+     "xy4_neighbour_measured": 0.1304
+    },
+    "H4": {
+     "none": 0.3942,
+     "xy4": 0.1691,
+     "xy8": 0.1735,
+     "xy4_neighbour_measured": 0.2294
+    }
+   },
+   "placement_phase_n5_DD_(majority,matching)": {
+    "SCORED": {
+     "R4": [
+      0.0213,
+      0.0137
+     ],
+     "R8": [
+      0.063,
+      0.0322
+     ],
+     "bare_dd": [
+      0.2813,
+      0.5115
+     ]
+    },
+    "READOUT_ONLY": {
+     "R4": [
+      0.0478,
+      0.041
+     ],
+     "R8": [
+      0.0963,
+      0.0713
+     ],
+     "bare_dd": [
+      0.4632,
+      0.5322
+     ]
+    }
+   },
+   "bit_scored_(uniform,learned)": {
+    "R8": {
+     "n9": [
+      [
+       0.0585,
+       0.0572
+      ],
+      [
+       0.0398,
+       0.0297
+      ]
+     ],
+     "n7": [
+      [
+       0.036,
+       0.0358
+      ],
+      [
+       0.2893,
+       0.2193
+      ]
+     ],
+     "bare": [
+      0.4085,
+      0.6365
+     ]
+    },
+    "R12": {
+     "n9": [
+      [
+       0.0755,
+       0.0725
+      ],
+      [
+       0.0418,
+       0.0295
+      ]
+     ],
+     "n7": [
+      [
+       0.047,
+       0.0408
+      ],
+      [
+       0.3095,
+       0.3247
+      ]
+     ],
+     "bare": [
+      0.533,
+      0.745
+     ]
+    }
+   },
+   "usage_after_s": 349
+  },
+  {
+   "round": 11,
+   "device": "ibm_marrakesh",
+   "jobs": {
+    "readout_echo": "dbn7rldt7fqc73aj30h0",
+    "loop1": "dbn7rodt7fqc73aj30og",
+    "loop2": "dbn7rr0qtr0c73acgre0"
+   },
+   "readout_echo_phase_n5_R8_(uniform,learned)": {
+    "off": [
+     [
+      0.0222,
+      0.024
+     ],
+     [
+      0.0387,
+      0.0408
+     ],
+     [
+      0.0653,
+      0.0663
+     ]
+    ],
+    "on": [
+     [
+      0.0262,
+      0.0285
+     ],
+     [
+      0.0467,
+      0.0515
+     ],
+     [
+      0.0658,
+      0.064
+     ]
+    ]
+   },
+   "closed_loop": {
+    "pass1_mean": [
+     0.0402,
+     0.0452
+    ],
+    "flagged": [
+     107,
+     132,
+     65,
+     62
+    ],
+    "pass2_mean": [
+     0.094,
+     0.12
+    ],
+    "note": "re-placement excluded 4 flagged qubits but forced the picker into a worse region (mean score 0.137->0.183); loop must swap only the affected chain"
+   },
+   "verdict": "readout echo: no gain (slightly worse). closed loop as implemented: worse. learned decoder: inconsistent.",
+   "usage_after_s": 364
+  },
+  {
+   "round": 12,
+   "device": "ibm_marrakesh",
+   "jobs": {
+    "loopfix": "dbn7udlt7fqc73aj36ag",
+    "ghz_none": "dbn7uhk4148s7390fjq0",
+    "ghz_XY4": "dbn7uult7fqc73aj37fg"
+   },
+   "loopfix": {
+    "kept_before": [
+     [
+      0.0253,
+      0.0266
+     ]
+    ],
+    "kept_now": [
+     [
+      0.0236,
+      0.0306
+     ]
+    ],
+    "replaced_before": [
+     [
+      0.0285,
+      0.0222
+     ],
+     [
+      0.065,
+      0.0651
+     ],
+     [
+      0.0421,
+      0.0669
+     ]
+    ],
+    "replaced_new": [
+     [
+      0.0658,
+      0.0671
+     ],
+     [
+      0.0675,
+      0.0695
+     ],
+     [
+      0.1691,
+      0.151
+     ]
+    ],
+    "note": "3 of 4 chains flagged; replacements came from worse qubits (score 0.21) -> loop only useful when better spares exist"
+   },
+   "ghz_raw_(P0,P1,Xparity,Fest)": {
+    "none": {
+     "10": [
+      0.307,
+      0.1925,
+      0.3325,
+      0.416
+     ],
+     "20": [
+      0.2361,
+      0.1191,
+      0.1645,
+      0.2599
+     ],
+     "30": [
+      0.1885,
+      0.0848,
+      0.0372,
+      0.1552
+     ],
+     "40": [
+      0.1676,
+      0.0325,
+      -0.015,
+      0.1076
+     ],
+     "60": [
+      0.1414,
+      0.0149,
+      0.0083,
+      0.0823
+     ],
+     "80": [
+      0.0694,
+      0.0029,
+      0.0015,
+      0.0369
+     ]
+    },
+    "XY4": {
+     "10": [
+      0.2652,
+      0.1673,
+      0.2933,
+      0.3629
+     ],
+     "20": [
+      0.1629,
+      0.092,
+      0.177,
+      0.2159
+     ],
+     "30": [
+      0.1281,
+      0.0715,
+      0.1017,
+      0.1507
+     ],
+     "40": [
+      0.0754,
+      0.0325,
+      0.0318,
+      0.0698
+     ],
+     "60": [
+      0.0192,
+      0.01,
+      0.0018,
+      0.0155
+     ],
+     "80": [
+      0.0043,
+      0.001,
+      0.001,
+      0.0031
+     ]
+    }
+   },
+   "note": "raw estimates, no readout mitigation, linear-depth chain; no N certified >0.5. DD hurt these short static circuits.",
+   "usage_after_s": 425
+  },
+  {
+   "round": 13,
+   "device": "ibm_marrakesh",
+   "jobs": {
+    "XY4": "dbn7vcgou4as73b419dg",
+    "none": "dbn7vkoou4as73b419tg"
+   },
+   "note": "tau=0 points invalid (compiler cancelled prepare/unprepare without barrier). Without DD coherence went NEGATIVE (N=4: -0.21 at 20us, N=8: -0.26 at 10us): GHZ phase rotates N times faster under detuning -> coherent, sensor-like amplification; DD removes it.",
+   "coherence_XY4": {
+    "1": {
+     "10": 0.906,
+     "20": 0.803,
+     "40": 0.524
+    },
+    "4": {
+     "10": 0.6885,
+     "20": 0.4755,
+     "40": 0.192
+    },
+    "8": {
+     "10": 0.4095,
+     "20": 0.191,
+     "40": 0.062
+    },
+    "16": {
+     "10": 0.0265
+    },
+    "32": {
+     "10": 0.037
+    }
+   },
+   "coherence_none": {
+    "1": {
+     "10": 0.8395,
+     "20": 0.6245,
+     "40": 0.164
+    },
+    "4": {
+     "10": 0.2085,
+     "20": -0.2065,
+     "40": -0.1505
+    },
+    "8": {
+     "10": -0.2555,
+     "20": 0.138,
+     "40": 0.0675
+    }
+   },
+   "usage_after_s": 475
+  },
+  {
+   "round": 14,
+   "device": "ibm_marrakesh",
+   "job": "dbn80a44148s7390fnm0",
+   "dd": "XY4",
+   "method": "GHZ_N prepared from path middle, wait tau, unprepared, coherence read on one qubit",
+   "coherence": {
+    "1": {
+     "0.1": 0.9945,
+     "4": 0.959,
+     "8": 0.9195,
+     "12": 0.881,
+     "16": 0.832,
+     "24": 0.7675
+    },
+    "2": {
+     "0.1": 0.9205,
+     "4": 0.83,
+     "8": 0.782,
+     "12": 0.734,
+     "16": 0.658,
+     "24": 0.531
+    },
+    "4": {
+     "0.1": 0.9415,
+     "4": 0.8225,
+     "8": 0.7415,
+     "12": 0.6695,
+     "16": 0.5885,
+     "24": 0.4195
+    },
+    "8": {
+     "0.1": 0.8025,
+     "4": 0.607,
+     "8": 0.4575,
+     "12": 0.3615,
+     "16": 0.2815,
+     "24": 0.1545
+    },
+    "12": {
+     "0.1": 0.618,
+     "4": 0.307,
+     "8": 0.147,
+     "12": 0.028,
+     "16": 0.019,
+     "24": 0.014
+    }
+   },
+   "decay_per_us": {
+    "1": 0.0111,
+    "2": 0.0223,
+    "4": 0.0328,
+    "8": 0.0678,
+    "12": 0.1818
+   },
+   "ratio": {
+    "1": 1.0,
+    "2": 2.01,
+    "4": 2.95,
+    "8": 6.11,
+    "12": 16.38
+   },
+   "fitted_exponent": 1.034,
+   "verdict": "N=1..8: decay grows ~linearly with N (independent noise, no superdecoherence). N=12 jumps to 16x: path includes worse qubits/correlated region (to be checked)."
+  },
+  {
+   "round": "14b",
+   "device": "ibm_fez",
+   "job": "dbn80lk4148s7390foig",
+   "decay_per_us": {
+    "1": 0.0192,
+    "2": 0.048,
+    "4": 0.0727,
+    "8": 0.1047,
+    "12": 0.1218
+   },
+   "ratio": {
+    "1": 1,
+    "2": 2.5,
+    "4": 3.79,
+    "8": 5.45,
+    "12": 6.34
+   },
+   "exponent": 0.713
+  },
+  {
+   "round": 15,
+   "device": "ibm_marrakesh",
+   "job": "dbn82pgou4as73b41h6g",
+   "paths": "coherence-scored",
+   "decay_per_us": {
+    "1": 0.0099,
+    "6": 0.0611,
+    "10": 0.0799,
+    "12": 0.0917
+   },
+   "ratio": {
+    "1": 1,
+    "6": 6.17,
+    "10": 8.07,
+    "12": 9.26
+   },
+   "exponent": 0.908,
+   "verdict": "N=12 outlier of round 14 (16x) was path-specific: on better qubits 9.3x"
+  },
+  {
+   "round": 16,
+   "device": "ibm_marrakesh",
+   "job": "dbn83elt7fqc73aj3hl0",
+   "N16": {
+    "coherence": {
+     "0.1": 0.59,
+     "4": 0.172,
+     "8": 0.06,
+     "16": 0.0187
+    },
+    "decay": 0.2892
+   },
+   "N20": {
+    "coherence": {
+     "0.1": 0.21,
+     "4": 0.0707,
+     "8": 0.064,
+     "16": 0.0387
+    },
+    "decay": 0.0941
+   },
+   "note": "N>=16 paths include poorer qubits; N20 starts at 0.21 so its fit is unreliable",
+   "usage_final": {
+    "consumed_s": 584,
+    "remaining_s": 16
+   }
+  },
+  {
+   "round": 17,
+   "credit": "second allocation 180 s",
+   "code": "[[4,2,2]] logical Bell (= two physical Bell pairs; XXXX, ZZZZ detect any single error in both bases)",
+   "shots": 6000,
+   "copies": 8,
+   "dd": "XY4",
+   "jobs": {
+    "ibm_marrakesh": "dbn859k4148s7390g18g",
+    "ibm_fez": "dbn85glt7fqc73aj3ktg",
+    "ibm_kingston": "dbn8780qtr0c73achiug"
+   },
+   "fidelity_lower_bound_(bare_mean, best_bare, logical, kept)": {
+    "ibm_marrakesh": {
+     "0.1": [
+      0.9345,
+      0.9668,
+      0.9956,
+      0.9314
+     ],
+     "10": [
+      0.7246,
+      0.8617,
+      0.9361,
+      0.7708
+     ],
+     "20": [
+      0.6111,
+      0.7737,
+      0.8604,
+      0.6977
+     ],
+     "40": [
+      0.4184,
+      0.5363,
+      0.6588,
+      0.6032
+     ],
+     "80": [
+      0.1868,
+      0.2793,
+      0.3268,
+      0.5281
+     ]
+    },
+    "ibm_fez": {
+     "0.1": [
+      0.911,
+      0.9627,
+      0.9959,
+      0.9226
+     ],
+     "10": [
+      0.684,
+      0.8157,
+      0.9198,
+      0.7312
+     ],
+     "20": [
+      0.4717,
+      0.6267,
+      0.7588,
+      0.6131
+     ],
+     "40": [
+      0.1728,
+      0.3642,
+      0.361,
+      0.5212
+     ],
+     "80": [
+      0.0891,
+      0.1908,
+      0.1632,
+      0.5069
+     ]
+    },
+    "ibm_kingston": {
+     "0.1": [
+      0.9311,
+      0.9602,
+      0.9953,
+      0.9254
+     ],
+     "10": [
+      0.8506,
+      0.8965,
+      0.9772,
+      0.853
+     ],
+     "20": [
+      0.76,
+      0.8253,
+      0.9336,
+      0.7889
+     ],
+     "40": [
+      0.5496,
+      0.6558,
+      0.7654,
+      0.6596
+     ]
+    }
+   },
+   "verdict": "error-DETECTED logical Bell pair beats the best physical pair up to 20-40 us on all three devices (postselection 53-93%). Known technique (Lidar group, [[4,2,2]] on IBM); first full both-basis protection in this project."
+  },
+  {
+   "round": 18,
+   "device": "ibm_marrakesh",
+   "job": "dbn877gqtr0c73achit0",
+   "code": "3 Bell pairs, majority vote per basis (keeps 100% of shots)",
+   "fidelity_lower_bound": {
+    "0.1": {
+     "bare": 0.9481,
+     "detect2": 0.9958,
+     "keep2": 0.9351,
+     "majority3": 0.9844
+    },
+    "10": {
+     "bare": 0.7678,
+     "detect2": 0.9392,
+     "keep2": 0.7734,
+     "majority3": 0.8814
+    },
+    "20": {
+     "bare": 0.6351,
+     "detect2": 0.8616,
+     "keep2": 0.6941,
+     "majority3": 0.7713
+    },
+    "40": {
+     "bare": 0.4198,
+     "detect2": 0.6612,
+     "keep2": 0.6016,
+     "majority3": 0.5545
+    }
+   }
+  },
+  {
+   "round": 19,
+   "code": "K=5 Bell pairs per 10-qubit path, same shots analysed as 1/3/5 pairs with majority vote per basis (all shots kept)",
+   "shots": 5000,
+   "copies": 4,
+   "dd": "XY4",
+   "jobs": {
+    "ibm_kingston": "dbn88d8qtr0c73achkhg",
+    "ibm_marrakesh": "dbn8900ou4as73b41r8g"
+   },
+   "fidelity_lower_bound_(1,3,5 pairs)": {
+    "ibm_kingston": {
+     "10": [
+      0.7965,
+      0.9411,
+      0.9813
+     ],
+     "20": [
+      0.6759,
+      0.8634,
+      0.9297
+     ],
+     "40": [
+      0.4485,
+      0.6445,
+      0.7173
+     ],
+     "80": [
+      0.1938,
+      0.3313,
+      0.3652
+     ]
+    },
+    "ibm_marrakesh": {
+     "10": [
+      0.7731,
+      0.8954,
+      0.9395
+     ],
+     "20": [
+      0.6522,
+      0.7941,
+      0.8571
+     ],
+     "40": [
+      0.4585,
+      0.5861,
+      0.6531
+     ],
+     "80": [
+      0.2157,
+      0.2856,
+      0.322
+     ]
+    }
+   },
+   "verdict": "more pairs -> monotonically better on both devices, without discarding shots. Caveat: fidelity is a basis-by-basis bound on the decoded logical pair; this is a repetition code of Bell pairs (distance grows only for the measured observables), related to entanglement distillation.",
+   "api_usage_after": {
+    "consumed_s": 100,
+    "remaining_s": 80
+   },
+   "dashboard_note": "user's dashboard shows RUs (1.23 RU after 72 s) -> 1 RU ~ 1 QPU-minute; API field reports 180 as limit"
+  }
+ ]
+}
